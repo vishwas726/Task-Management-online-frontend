@@ -5,11 +5,11 @@ import axios from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { CiCircleList, CiSearch } from "react-icons/ci";
+import { CiCircleList } from "react-icons/ci";
 // import { IoNotificationsOutline } from "react-icons/io5";
 // import { MdKeyboardArrowDown } from "react-icons/md";
 
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 
 type FormData = {
@@ -57,7 +57,7 @@ const Page = () => {
 
         setError(newErrors);
 
-        for (let key in newErrors) {
+        for (const key in newErrors) {
             if (newErrors[key as keyof ErrorType] !== "") {
                 return;
             }
@@ -98,7 +98,7 @@ const Page = () => {
                     <div className="h-[100px] mt- 10 bg-gradient-to-r from-blue-400 to-orange-200 w-full items-center flex p-4 justify-end">
                             
                              <Link href="/list">
-                                <div className={` text-blue-600 flex sm:hidden gap-2 font-bold py-2 px-2.5  rounded-lg ${"path" == "add" ? "bg-blue-100 text-blue-500" : ""} bg-white  cursor-pointer `}>
+                                <div className={` text-blue-600 flex sm:hidden gap-2 font-bold py-2 px-2.5  rounded-lg  bg-white  cursor-pointer `}>
                                     <CiCircleList className="text-[1.7rem]  -gray-400" />
                                     List Task
                                 </div>

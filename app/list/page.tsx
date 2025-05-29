@@ -83,8 +83,7 @@ const Page: React.FC = () => {
     const onDelete = async (_id: string) => {
 
         try {
-
-            const res = await axios.delete(`${API_BASE_URL}/tasks/${_id}`)
+            await axios.delete(`${API_BASE_URL}/tasks/${_id}`)
             fetchData()
             toast.success(`Task Deleted Successfully`)
 
@@ -119,7 +118,7 @@ const Page: React.FC = () => {
     }
 
     const onChangeStatus = (task: Task) => {
-        let newStatus: "Completed" | "Pending" = task.status === "Completed" ? "Pending" : "Completed";
+        const newStatus: "Completed" | "Pending" = task.status === "Completed" ? "Pending" : "Completed";
        
         axios.put(`${API_BASE_URL}/tasks/${task._id}/status`, { status: newStatus })
             .then((res) => {
